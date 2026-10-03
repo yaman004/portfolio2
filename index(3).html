@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yaman Choudhary — Social Media & Creative</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;600;700;800;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:#090909;color:#f3f0ea;font-family:Inter,Arial,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}.wrap{width:min(1180px,90%);margin:auto}
+nav{position:fixed;top:0;left:0;right:0;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;z-index:10;background:rgba(9,9,9,.8);backdrop-filter:blur(16px);border-bottom:1px solid #252525}
+.logo{font-weight:900;letter-spacing:-.05em}.logo small{font:10px "DM Mono";color:#888;margin-left:8px;letter-spacing:.05em}
+.links{display:flex;gap:25px;font:11px "DM Mono";color:#aaa}.links a:hover{color:#fff}
+.hero{min-height:100vh;padding-top:120px;display:flex;flex-direction:column;justify-content:center;border:0!important}
+.eyebrow,.label{font:11px "DM Mono";text-transform:uppercase;letter-spacing:1.8px;color:#888}
+h1{font-size:clamp(54px,9.7vw,140px);line-height:.83;letter-spacing:-.075em;text-transform:uppercase;margin:25px 0}
+h1 span{color:#ff4538}.hero-foot{display:flex;justify-content:space-between;gap:35px;align-items:end;margin-top:50px}.intro{max-width:560px;color:#aaa;font-size:17px}
+.btn{display:inline-flex;gap:10px;align-items:center;border:1px solid #555;border-radius:100px;padding:14px 19px;font-size:12px;font-weight:800;white-space:nowrap}.btn:hover{background:#f3f0ea;color:#090909}
+.red-dot{width:7px;height:7px;border-radius:50%;background:#ff4538}
+section{padding:110px 0;border-top:1px solid #252525}.section-top{display:flex;justify-content:space-between;margin-bottom:38px}
+.work{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{aspect-ratio:16/10;position:relative;overflow:hidden;background:#151515;border:1px solid #292929;cursor:pointer}
+.thumb{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(135deg,#151515,#303030);transition:.4s}
+.card:nth-child(2) .thumb{background:linear-gradient(135deg,#111,#40221e)}
+.card:nth-child(3) .thumb{background:linear-gradient(135deg,#111820,#263942)}
+.card:nth-child(4) .thumb{background:linear-gradient(135deg,#201914,#493528)}
+.card:hover .thumb{transform:scale(1.04)}
+.thumb b{font:11px "DM Mono";letter-spacing:2px;color:#777}.card-info{position:absolute;bottom:0;left:0;right:0;padding:22px;background:linear-gradient(transparent,rgba(0,0,0,.95))}
+.card-title{font-size:21px;font-weight:800}.meta{font:10px "DM Mono";color:#aaa;margin-top:5px;text-transform:uppercase}
+.play{position:absolute;top:16px;right:16px;width:40px;height:40px;border:1px solid #777;border-radius:50%;display:grid;place-items:center;font-size:11px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px}.big{font-size:clamp(40px,5.2vw,72px);line-height:.94;letter-spacing:-.06em;text-transform:uppercase;margin-top:25px}
+.copy{color:#aaa;font-size:16px;line-height:1.75}.copy p+p{margin-top:20px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.tag{font:10px "DM Mono";border:1px solid #393939;border-radius:100px;padding:9px 12px;color:#bbb}
+.timeline{display:grid;gap:0}.job{display:grid;grid-template-columns:180px 1fr;gap:30px;padding:28px 0;border-bottom:1px solid #252525}.date{font:10px "DM Mono";color:#777;text-transform:uppercase}.job h3{font-size:20px}.job h4{font:11px "DM Mono";color:#999;margin:4px 0 12px}.job p{font-size:14px;color:#aaa;max-width:720px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #292929}.stat{padding:30px;border-right:1px solid #292929}.stat:last-child{border:0}.num{font-size:42px;font-weight:900;letter-spacing:-.06em}.stat p{font:10px "DM Mono";color:#888;text-transform:uppercase;margin-top:5px}
+.contact{min-height:70vh;display:flex;flex-direction:column;justify-content:center}.contact h2{font-size:clamp(55px,9vw,125px);line-height:.85;letter-spacing:-.075em;text-transform:uppercase;margin-top:22px}.contact h2 span{color:#ff4538}.contact-row{display:flex;justify-content:space-between;align-items:center;margin-top:50px}.email{font:12px "DM Mono";color:#aaa}
+footer{border-top:1px solid #252525;padding:25px 0;display:flex;justify-content:space-between;color:#666;font:9px "DM Mono"}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:30;align-items:center;justify-content:center;padding:25px}.modal.open{display:flex}.modalbox{width:min(900px,100%);border:1px solid #333;background:#151515;padding:10px}.video-placeholder{aspect-ratio:16/9;display:grid;place-items:center;background:#202020;color:#777;font:11px "DM Mono";letter-spacing:1px}.close{position:fixed;right:22px;top:18px;border:1px solid #555;background:none;color:#fff;border-radius:50%;width:40px;height:40px;font-size:20px;cursor:pointer}
+@media(max-width:700px){.links{gap:12px;font-size:9px}.links a:nth-child(2){display:none}.hero-foot,.contact-row{flex-direction:column;align-items:flex-start}.work,.about-grid{grid-template-columns:1fr}.job{grid-template-columns:1fr;gap:8px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid #292929}.stat:last-child{border-bottom:0}section{padding:85px 0}h1{font-size:18vw}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#">YAMAN CHOUDHARY <small>CREATIVE</small></a><div class="links"><a href="#work">WORK</a><a href="#experience">EXPERIENCE</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></div></nav>
+
+<main class="wrap">
+<section class="hero">
+<div class="eyebrow">Social Media Manager · Video Editor · Graphic Designer</div>
+<h1>Content that<br><span>gets noticed.</span></h1>
+<div class="hero-foot"><p class="intro">I’m Yaman Choudhary, a social media manager and video editor based in Jaipur. I build content end-to-end — strategy, shooting, editing, design, publishing and performance tracking.</p><a class="btn" href="#work"><i class="red-dot"></i> VIEW MY WORK ↓</a></div>
+</section>
+
+<section id="work"><div class="section-top"><div class="label">01 / Selected Work</div><div class="label">REELS · BRAND · SOCIAL</div></div>
+<div class="work">
+<a class="card" href="https://www.instagram.com/reel/DdG7W8kTbfW/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" data-title="Personal Instagram Reel 01"><div class="thumb"><b>WATCH ON INSTAGRAM ↗</b></div><div class="play">↗</div><div class="card-info"><div class="card-title">Personal Reel 01</div><div class="meta">Self-created · Instagram · Short-form</div></div></a>
+<a class="card" href="https://www.instagram.com/reel/Ddbf7YGsdKP/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" data-title="Personal Instagram Reel 02"><div class="thumb"><b>WATCH ON INSTAGRAM ↗</b></div><div class="play">↗</div><div class="card-info"><div class="card-title">Personal Reel 02</div><div class="meta">Self-created · Instagram · Short-form</div></div></a>
+<a class="card" href="https://www.instagram.com/reel/DcoCcCNvyWD/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer" data-title="Personal Instagram Reel 03"><div class="thumb"><b>WATCH ON INSTAGRAM ↗</b></div><div class="play">↗</div><div class="card-info"><div class="card-title">Personal Reel 03</div><div class="meta">Self-created · Instagram · Short-form</div></div></a>
+<div class="card"><div class="thumb"><b>2.5K+ PERSONAL PAGE</b></div><div class="card-info"><div class="card-title">Creator Page</div><div class="meta">Self-managed · Strategy · Growth</div></div></div>
+</div></section>
+
+<section id="about"><div class="about-grid"><div><div class="label">02 / Profile</div><div class="big">Creative execution with a structured mindset.</div></div>
+<div class="copy"><p>Social media manager and video editor with professional brand experience at Flo, two years leading a college social media club, and two years editing video content.</p><p>I personally manage a 2,500+ follower Instagram page, owning content from strategy and shooting through editing, graphic design, publishing and performance tracking.</p><div class="tags"><span class="tag">CONTENT STRATEGY</span><span class="tag">REELS / SHORTS</span><span class="tag">CAPCUT</span><span class="tag">PREMIERE PRO</span><span class="tag">CANVA</span><span class="tag">PHOTOSHOP</span><span class="tag">INSTAGRAM INSIGHTS</span><span class="tag">COMMUNITY</span></div></div></div></section>
+
+<section id="experience"><div class="section-top"><div class="label">03 / Experience</div><div class="label">2024 — 2026</div></div>
+<div class="timeline">
+<div class="job"><div class="date">May — Sep 2026</div><div><h3>Video Editor & Social Media Manager</h3><h4>FLO</h4><p>Owned content creation and publishing for brand social channels; produced Reels/Shorts, planned content and schedules, collaborated with teams, and delivered on-brand content from concept through publish.</p></div></div>
+<div class="job"><div class="date">2 YEARS</div><div><h3>Social Media Club Captain</h3><h4>POORNIMA COLLEGE OF ENGINEERING</h4><p>Led a student team, directed content around events and fests, coordinated shoots, handled editing and design, managed publishing schedules, and reviewed output before publishing.</p></div></div>
+<div class="job"><div class="date">2 YEARS</div><div><h3>Video Editor — Independent</h3><h4>SELF-DIRECTED</h4><p>Edited short- and long-form content across personal, club and brand projects, including cuts, transitions, color correction, audio sync, captions and retention-focused pacing.</p></div></div>
+</div></section>
+
+<section><div class="section-top"><div class="label">04 / Proof of Work</div></div><div class="stats"><div class="stat"><div class="num">2.5K+</div><p>Instagram followers managed</p></div><div class="stat"><div class="num">2 YRS</div><p>Social media club leadership</p></div><div class="stat"><div class="num">2 YRS</div><p>Video editing experience</p></div></div></section>
+
+<section class="contact" id="contact"><div class="label">05 / Contact</div><h2>Let’s make<br><span>something move.</span></h2><div class="contact-row"><div class="email">choudharyyaman004@gmail.com · Jaipur, Rajasthan</div><a class="btn" href="mailto:choudharyyaman004@gmail.com"><i class="red-dot"></i> START A CONVERSATION ↗</a></div></section>
+</main>
+<footer class="wrap"><span>© 2026 YAMAN CHOUDHARY</span><span>SOCIAL · VIDEO · DESIGN</span></footer>
+
+<div class="modal" id="modal"><button class="close" id="close">×</button><div class="modalbox"><div class="video-placeholder" id="modaltext">ADD YOUR VIDEO FILE / LINK HERE</div></div></div>
+<script>
+const modal=document.querySelector('#modal'), text=document.querySelector('#modaltext');
+document.querySelector('#close').onclick=()=>modal.classList.remove('open');
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};
+document.onkeydown=e=>{if(e.key==='Escape')modal.classList.remove('open')};
+</script>
+</body>
+</html>
